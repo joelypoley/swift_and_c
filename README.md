@@ -18,7 +18,7 @@ Create a new folder `CMath`.
 $ mkdir Sources/CMath
 ```
 
-Create a new file `Sources/CMath/Cmath.c` and define a function in there.
+Create a new file `Sources/CMath/CMath.c` and define a function in there.
 
 ```
 // Sources/CMath/CMath.c
@@ -34,20 +34,26 @@ Add a new directory `Sources/CMath/include` and create a header file which decla
 int square(int x);
 ```
 
-Add `CMath` to the Package targets by adding the following snippet to the `targets` array in  `Package.swift`.
+Add `CMath` to the package targets by adding the following snippet to the `targets` array in  `Package.swift`.
 
 ```
+// Package.swift
+...
 .target(
   name: "CMath",
   dependencies: []),
+...
 ```
 
 Modify the `swift_and_c` target to depend on CMath.
 
 ```
+// Package.swift
+...
 .target(
   name: "swift_and_c",
   dependencies: ["CMath"]),
+...
 ```
 
 Modify `Sources/swift_and_c/main.swift` so that it uses the CMath module.
